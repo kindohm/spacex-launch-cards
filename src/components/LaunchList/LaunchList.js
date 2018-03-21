@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { setLaunches, setDetail } from "./../../reducers/index";
-import LaunchListItem from "./LaunchListItem";
+import Card from "./../Card/Card";
+import * as _ from "lodash";
 
 class LaunchList extends Component {
     componentDidMount() {
@@ -17,18 +18,36 @@ class LaunchList extends Component {
         });
     }
 
-    itemClick(item){
+    itemClick(item) {
         this.props.setDetail(item);
     }
 
     render() {
         const launchElements = this.props.launches ? this.props.launches.map(launch => {
-            return <li key={launch.flight_number} onClick={this.itemClick.bind(this, launch)}>
-                <LaunchListItem date={launch.launch_date_utc} flightNumber={launch.flight_number}></LaunchListItem>
-            </li>;
+            
+            const rocket = launch.rocket;
+            const secondStage = rocket ? rocket.second_stage : null;
+            const payloads = secondStage ? secondStage.payloads : null;
+
+            const payloadsValue = payloads ? 
+                _.flatMap(payloads, payload => payload.payload_type).join(', ') : null;
+
+            return <Card flightNumber={launch.flight_number}
+                key={launch.flight_number}
+                date={launch.launch_date_utc}
+                siteName={launch.launch_site.site_name_long}
+                rocketType={launch.rocket.rocket_type}
+                rocketName={launch.rocket.rocket_name}
+                success={launch.launch_success}
+                details={launch.details}
+                missionPatchUrl={launch.links.mission_patch}
+                payload={payloadsValue}
+                redditUrl={launch.links.reddit_campaign}
+                videoUrl={launch.links.video_link}
+                articleUrl={launch.links.article_link}></Card>;
         }) : null;
 
-        return <ul>{launchElements}</ul>
+        return <ul className="nav flex-column">{launchElements}</ul>
     }
 }
 
