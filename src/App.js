@@ -9,7 +9,11 @@ import PropTypes from 'prop-types';
 Modal.setAppElement('#root');
 
 const modalStyles = {
-    content: { bottom: 'auto' }
+    content: {
+        bottom: 'auto',
+        background: 'transparent',
+        border: '0px'
+    }
 };
 
 class App extends Component {

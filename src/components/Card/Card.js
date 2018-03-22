@@ -30,33 +30,45 @@ class Card extends Component {
             </div>;
         });
 
-        return <div className="row">
+        return <div className="row z-depth-3" style={{ backgroundColor: '#fff' }}>
             <div className="col s1">
                 <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.props.previousIndex}>
                     <i className="material-icons">chevron_left</i>
                 </a>
             </div>
-            <div className="col s3">
+            <div className="col s3 center-align">
+                <h3>Flight #{launch.flight_number}</h3>
                 <img style={{ maxWidth: '100%', maxHeight: '400px' }} alt={launch.flight_number} src={launch.links.mission_patch} />
             </div>
             <div className="col s7">
 
-                <h3>Flight #{launch.flight_number}</h3>
-                <p>{date}</p>
-                <p className="">{launch.details}</p>
+                <div className="row">
 
-                <ul className="">
-                    <li className="collection-item"><strong>Launch Site:</strong> {launch.launch_site.site_name_long}</li>
-                    <li className="collection-item"><strong>Rocket:</strong> {launch.rocket.rocket_name}</li>
-                    <li className="collection-item"><strong>Rocket Type:</strong> {launch.rocket.rocket_type}</li>
-                </ul>
+                    <div className="col s12">
+                    </div>
+                </div>
+                <div className="row">
 
-                <h5>Payloads</h5>
-                {payloadElements}
+                    <div className="col s6">
+                        <p>{date}</p>
+                        <p className="">{launch.details}</p>
+
+                        <ul className="">
+                            <li className="collection-item"><strong>Launch Site:</strong> {launch.launch_site.site_name_long}</li>
+                            <li className="collection-item"><strong>Rocket:</strong> {launch.rocket.rocket_name}</li>
+                            <li className="collection-item"><strong>Rocket Type:</strong> {launch.rocket.rocket_type}</li>
+                        </ul>
+                    </div>
+                    <div className="col s6">
+
+                        <h5>Payloads</h5>
+                        {payloadElements}
+                    </div>
+                </div>
 
 
             </div>
-            <div className="col s1">
+            <div className="col s1 right-align">
                 <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.props.nextIndex}>
                     <i className="material-icons">chevron_right</i>
                 </a>

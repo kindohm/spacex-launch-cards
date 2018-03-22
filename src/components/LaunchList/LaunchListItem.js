@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const LaunchListItem = ({ flightNumber, missionPatchUrl, selectLaunch }) => (
 
-    <div style={{ cursor: 'pointer' }} onClick={selectLaunch.bind(this, flightNumber)}>
+    <div className="hoverable" style={{ cursor: 'pointer' }} onClick={selectLaunch.bind(this, flightNumber)}>
         <div className='card horizontal' style={{ height: '80px' }}>
             <div className='card-image valign-wrapper hide-on-small-only'>
                 <img src={missionPatchUrl} alt={flightNumber} style={{ margin: '10px', maxWidth: '50px', maxHeight: '80px' }} />
