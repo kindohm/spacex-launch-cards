@@ -8,17 +8,25 @@ import { connect } from 'react-redux'
 
 Modal.setAppElement('#root');
 
+const modalStyles = {
+  content: {
+    bottom: "auto"
+  }
+};
+
 class App extends Component {
 
   render() {
     return (
       <div className="container">
+      <h2>Space-X Flights</h2>
         <div className="row">
           <div className="col-md-5">
             <LaunchList></LaunchList>
             <Modal isOpen={this.props.modalIsOpen}
               onRequestClose={this.props.closeModal}
-              contentLabel="Example Modal">
+              contentLabel="Example Modal"
+              style={modalStyles}>
               <Card></Card>
             </Modal>
           </div>

@@ -19,10 +19,11 @@ class LaunchList extends Component {
 
     render() {
         const launchElements = this.props.launches ? this.props.launches.map(launch => {
-            return <LaunchListItem key={launch.flight_number}
-                selectLaunch={this.props.setDetail}
-                flightNumber={launch.flight_number} 
-                missionPatchUrl={launch.links.mission_patch} />
+            return <div key={launch.flight_number} className="col s3">
+                <LaunchListItem
+                    selectLaunch={this.props.setDetail}
+                    flightNumber={launch.flight_number}
+                    missionPatchUrl={launch.links.mission_patch} /></div>
         }) : null;
 
         return <div className="row">{launchElements}</div>
