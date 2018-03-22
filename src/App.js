@@ -20,17 +20,19 @@ class App extends Component {
 
     render() {
         return (
-            <div className='container'>
-                <h2>Space-X Flights</h2>
-                <div className='row'>
-                    <div className='col-md-5'>
-                        <LaunchList></LaunchList>
-                        <Modal isOpen={this.props.modalIsOpen}
-                            onRequestClose={this.props.closeModal}
-                            contentLabel='Example Modal'
-                            style={modalStyles}>
-                            <Card></Card>
-                        </Modal>
+            <div>
+                <div className='container' style={{paddingTop: '20px'}}>
+                    <h2 className="orange-text text-darken-2" style={{ marginTop: '0' }}>Space-X Flights</h2>
+                    <div className='row'>
+                        <div className='col-md-5'>
+                            <LaunchList></LaunchList>
+                            <Modal isOpen={this.props.modalIsOpen}
+                                onRequestClose={this.props.closeModal}
+                                contentLabel='Example Modal'
+                                style={modalStyles}>
+                                <Card></Card>
+                            </Modal>
+                        </div>
                     </div>
                 </div>
             </div>
