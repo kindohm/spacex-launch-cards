@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { setLaunches, setDetail } from "./../../reducers/index";
-import LaunchListItem from './LaunchListItem';
+import { connect } from 'react-redux';
+import { setLaunches, setDetail } from './../../reducers/index';
+import { LaunchListItem } from './LaunchListItem';
 
 class LaunchList extends Component {
     componentDidMount() {
@@ -23,10 +23,10 @@ class LaunchList extends Component {
                 <LaunchListItem
                     selectLaunch={this.props.setDetail}
                     flightNumber={launch.flight_number}
-                    missionPatchUrl={launch.links.mission_patch} /></div>
+                    missionPatchUrl={launch.links.mission_patch} /></div>;
         }) : null;
 
-        return <div className="row">{launchElements}</div>
+        return <div className="row">{launchElements}</div>;
     }
 
 }
@@ -35,16 +35,16 @@ const mapDispatchToProps = dispatch => {
     return {
         setLaunches: launches => dispatch(setLaunches(launches)),
         setDetail: flightNumber => dispatch(setDetail(flightNumber))
-    }
-}
+    };
+};
 
 const mapStateToProps = state => {
     return { launches: state.launches };
-}
+};
 
 const VisibleLaunchList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(LaunchList)
+)(LaunchList);
 
-export default VisibleLaunchList
+export default VisibleLaunchList;

@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as _ from 'lodash';
 import moment from 'moment';
-import { nextIndex, previousIndex } from "./../../reducers/index";
+import { nextIndex, previousIndex } from './../../reducers/index';
 
 class Card extends Component {
-
     render() {
         const launch = this.props.launch;
         const rocket = launch.rocket;
