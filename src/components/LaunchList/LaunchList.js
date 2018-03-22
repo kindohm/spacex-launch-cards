@@ -22,6 +22,7 @@ class LaunchList extends Component {
         const launchElements = this.props.launches ? this.props.launches.map(launch => {
             return <div key={launch.flight_number} className="col s3">
                 <LaunchListItem
+                    success={launch.launch_success}
                     selectLaunch={this.props.setDetail}
                     flightNumber={launch.flight_number}
                     missionPatchUrl={launch.links.mission_patch} /></div>;
@@ -35,7 +36,7 @@ class LaunchList extends Component {
 LaunchList.propTypes = {
     launches: PropTypes.arrayOf(PropTypes.object),
     setLaunches: PropTypes.func,
-    setDetail: PropTypes.func
+    setDetail: PropTypes.func,
 };
 
 const mapDispatchToProps = dispatch => {
