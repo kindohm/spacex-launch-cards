@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import LaunchList from './components/LaunchList/LaunchList';
 import Card from './components/Card/Card';
 import { clearDetail } from './reducers/index';
