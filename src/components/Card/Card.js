@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import moment from 'moment';
 import { nextIndex, previousIndex } from './../../reducers/index';
+import PropTypes from 'prop-types';
 
 class Card extends Component {
     render() {
@@ -26,7 +27,7 @@ class Card extends Component {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>;
         });
 
         return <div className="row">
@@ -61,25 +62,31 @@ class Card extends Component {
                 </a>
 
             </div>
-        </div>
+        </div>;
 
     }
 }
+
+Card.propTypes = {
+    launch: PropTypes.object,
+    nextIndex: PropTypes.func,
+    previousIndex: PropTypes.func
+};
 
 const mapDispatchToProps = dispatch => {
     return {
         nextIndex: () => dispatch(nextIndex()),
         previousIndex: () => dispatch(previousIndex())
     };
-}
+};
 
 const mapStateToProps = state => {
     return { launch: state.detail };
-}
+};
 
 const VisibleCard = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Card)
+)(Card);
 
-export default VisibleCard
+export default VisibleCard;

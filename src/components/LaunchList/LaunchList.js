@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setLaunches, setDetail } from './../../reducers/index';
 import { LaunchListItem } from './LaunchListItem';
+import PropTypes from 'prop-types';
 
 class LaunchList extends Component {
     componentDidMount() {
@@ -30,6 +31,12 @@ class LaunchList extends Component {
     }
 
 }
+
+LaunchList.propTypes = {
+    launches: PropTypes.arrayOf(PropTypes.object),
+    setLaunches: PropTypes.func,
+    setDetail: PropTypes.func
+};
 
 const mapDispatchToProps = dispatch => {
     return {
