@@ -48,7 +48,9 @@ class Card extends Component {
                     maxWidth: '100%',
                     maxHeight: '400px'
                 }} alt={launch.flight_number} src={launch.links.mission_patch} />
+
                 <h3 style={{marginTop: '0px'}} className={launch.launch_success ? 'green-text' : 'red-text'}>{launch.launch_success ? 'Success' : 'Failed'}</h3>
+
             </div>
             <div className="col s7">
 

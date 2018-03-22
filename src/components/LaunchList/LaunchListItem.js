@@ -18,7 +18,7 @@ const LaunchListItem = ({success, flightNumber, missionPatchUrl, selectLaunch })
 );
 
 LaunchListItem.propTypes= {
-    flightNumber: PropTypes.string,
+    flightNumber: PropTypes.number,
     missionPatchUrl: PropTypes.string,
     selectLaunch: PropTypes.func,
     success: PropTypes.bool
