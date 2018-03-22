@@ -19,6 +19,7 @@ class Card extends Component {
             return <div className="col s6" key={payload.payload_id}>
                 <div className="card grey">
                     <div className="card-content">
+                        <h5>Payload</h5>
                         <ul>
                             <li className="collection-item">Type: {payload.payload_type}</li>
                             <li className="collection-item">Mass: {mass}</li>
@@ -60,8 +61,6 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="col s6">
-
-                        <h5>Payloads</h5>
                         {payloadElements}
                     </div>
                 </div>
