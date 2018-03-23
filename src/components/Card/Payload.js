@@ -12,6 +12,7 @@ const PayloadList = ({ launch }) => {
         const customers = payload.customers.join(', ');
         const mass = payload.payload_mass_kg ? `${payload.payload_mass_kg}kg` : 'n/a';
         return <Payload
+            key={payload.payload_id}
             id={payload.payload_id}
             count={count} 
             type={payload.payload_type} 
@@ -22,7 +23,7 @@ const PayloadList = ({ launch }) => {
 };
 
 PayloadList.propTypes = {
-    launch: PropTypes.arrayOf(PropTypes.object)
+    launch: PropTypes.object
 };
 
 const Payload = ({ id, count, type, mass, orbit, customers }) => (

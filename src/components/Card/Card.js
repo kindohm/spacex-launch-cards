@@ -10,6 +10,7 @@ const buttonStyle = {
 };
 
 class Card extends Component {
+
     render() {
         const launch = this.props.launch;
         const date = moment(launch.launch_date_utc).format('LLL');

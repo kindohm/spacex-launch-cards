@@ -32,7 +32,7 @@ const actions = {
             : currentIndex < length - 2 ? currentIndex + 1 : 0;
         return {
             ...state,
-            detail: state.launches[nextIndex],
+            detail: state.detail ? state.launches[nextIndex] : null,
             detailIndex: nextIndex
         };
     },
@@ -43,7 +43,7 @@ const actions = {
             : currentIndex > 0 ? currentIndex - 1 : length - 1;
         return {
             ...state,
-            detail: state.launches[nextIndex],
+            detail: state.detail ? state.launches[nextIndex] : null,
             detailIndex: nextIndex
         };
     },
